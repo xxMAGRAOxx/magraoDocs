@@ -1,18 +1,3 @@
-Logotipo do Google Drive
-Adicionar ao Google Drive
-Kit Integração5 itens
-Arquivo compactado
-Guia Completo ONIX Pt-BR.zip
-PDF
-Manual Integração - Bibliomundi.pdf
-Arquivo compactado
-Manual Original Onix.zip
-
-onix.essencial.xml
-PDF
-WebServiceDocs-Bibliomundi.pdf
-
-
 <?xml version="1.0" encoding="UTF-8" ?>
 <ONIXMessage release="3.0"
     xmlns="http://ns.editeur.org/onix/3.0/reference">
