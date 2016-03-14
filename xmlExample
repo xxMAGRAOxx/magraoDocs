@@ -1,0 +1,178 @@
+<ONIXMessage
+    xmlns="http://ns.editeur.org/onix/3.0/reference" release="3.0">
+    <Header>
+        <Sender>
+            <SenderName>BiblioMundi</SenderName>
+            <ContactName>Bibliomundi, +55 21 3646 3905</ContactName>
+            <EmailAddress>suporte@bibliomundi.com.br</EmailAddress>
+        </Sender>
+        <Addressee>
+            <AddresseeName>livraria.com.br</AddresseeName>
+        </Addressee>
+        <SentDateTime>20150630T1113-0300</SentDateTime>
+    </Header>
+    <Product>
+        <RecordReference>com.bibliomundi.onix.294</RecordReference>
+        <NotificationType>03</NotificationType>
+        <RecordSourceType>04</RecordSourceType>
+        <ProductIdentifier>
+            <ProductIDType>01</ProductIDType>
+            <IDTypeName>Bibliomundi</IDTypeName>
+            <IDValue>294</IDValue>
+        </ProductIdentifier>
+        <ProductIdentifier>
+            <ProductIDType>15</ProductIDType>
+            <IDValue/>
+        </ProductIdentifier>
+        <DescriptiveDetail>
+            <ProductComposition>00</ProductComposition>
+            <ProductForm>ED</ProductForm>
+            <ProductFormDetail>E101</ProductFormDetail>
+            <CountryOfManufacture>BR</CountryOfManufacture>
+            <EpubTechnicalProtection>03</EpubTechnicalProtection>
+        </DescriptiveDetail>
+        <TitleDetail>
+            <TitleType>01</TitleType>
+            <TitleElement>
+                <SequenceNumber>1</SequenceNumber>
+                <TitleElementLevel>01</TitleElementLevel>
+                <TitleText>A Revolução Portugueza</TitleText>
+                <Subtitle>O 31 de Janeiro (Porto 1891)</Subtitle>
+            </TitleElement>
+        </TitleDetail>
+        <Contributor>
+            <SequenceNumber>1</SequenceNumber>
+            <ContributorRole>A01</ContributorRole>
+            <NameIdentifier>
+                <NameIDType>01</NameIDType>
+                <IDTypeName>autor tipo teste</IDTypeName>
+                <IDValue>123</IDValue>
+            </NameIdentifier>
+            <PersonNameInverted>Abreu, Francisco</PersonNameInverted>
+            <NamesBeforeKey>Francisco</NamesBeforeKey>
+            <KeyNames>Abreu</KeyNames>
+            <BiographicalNote textformat="05">
+                <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi dolor. Suspendisse bibendum dolor ut velit rhoncus dignissim. Integer pharetra tellus vel mauris posuere, sed sollicitudin nibh feugiat. Nunc nec dui sit amet sem bibendum iaculis non ut ante. Fusce et imperdiet lorem, non rhoncus tortor. Nullam ut nisl eros. Donec fermentum risus vel consequat lobortis. Curabitur gravida ultrices pulvinar. Fusce sed volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+</p>
+            </BiographicalNote>
+            <Website>
+                <WebsiteRole>06</WebsiteRole>
+                <WebsiteLink/>
+            </Website>
+            <ContributorPlace>
+                <ContributorPlaceRelator>04</ContributorPlaceRelator>
+                <LocationName>rio de janeiro</LocationName>
+            </ContributorPlace>
+        </Contributor>
+        <ContributorStatement>Escrito e editado por Francisco Abreu</ContributorStatement>
+        <EditionNumber>1</EditionNumber>
+        <Language>
+            <LanguageRole>01</LanguageRole>
+            <LanguageCode>por</LanguageCode>
+        </Language>
+        <Extent>
+            <ExtentType>00</ExtentType>
+            <ExtentValue>11111</ExtentValue>
+            <ExtentUnit>03</ExtentUnit>
+        </Extent>
+        <Extent>
+            <ExtentType>22</ExtentType>
+            <ExtentValue>1024</ExtentValue>
+            <ExtentUnit>17</ExtentUnit>
+        </Extent>
+        <Subject>
+            <MainSubject/>
+            <SubjectSchemeIdentifier>10</SubjectSchemeIdentifier>
+            <SubjectCode>PER003100</SubjectCode>
+        </Subject>
+        <Subject>
+            <MainSubject/>
+            <SubjectSchemeIdentifier>01</SubjectSchemeIdentifier>
+            <SubjectCode>130</SubjectCode>
+        </Subject>
+        <Audience>
+            <AudienceCodeType>01</AudienceCodeType>
+            <AudienceCodeValue>02</AudienceCodeValue>
+        </Audience>
+        <AudienceRange>
+            <AudienceRangeQualifier>17</AudienceRangeQualifier>
+            <AudienceRangePrecision>03</AudienceRangePrecision>
+            <AudienceRangeValue>6</AudienceRangeValue>
+        </AudienceRange>
+        <CollateralDetail>
+            <TextContent>
+                <TextType>03</TextType>
+                <ContentAudience>00</ContentAudience>
+                <Text textformat="05">
+                    <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi dolor. Suspendisse bibendum dolor ut velit rhoncus dignissim. Integer pharetra tellus vel mauris posuere, sed sollicitudin nibh feugiat. Nunc nec dui sit amet sem bibendum iaculis non ut ante. Fusce et imperdiet lorem, non rhoncus tortor. Nullam ut nisl eros. Donec fermentum risus vel consequat lobortis. Curabitur gravida ultrices pulvinar. Fusce sed volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam gravida metus vel justo elementum, vel aliquet ex tincidunt. Maecenas ullamcorper lacus non est tempor dignissim. Proin interdum facilisis quam vehicula rhoncus. Nullam mattis commodo mi et accumsan. Duis quis maximus nunc. Pellentesque non dapibus turpis. Maecenas ac libero id leo iaculis consequat eget non ante. Duis ac hendrerit quam. Cras eget sollicitudin metus. Sed et scelerisque leo. Sed tincidunt pretium felis, sit amet luctus est viverra ac. Pellentesque tristique consectetur el
+</p>
+                </Text>
+            </TextContent>
+            <SupportingResource>
+                <ResourceContentType>01</ResourceContentType>
+                <ContentAudience>00</ContentAudience>
+                <ResourceMode>03</ResourceMode>
+                <ResourceVersion>
+                    <ResourceForm>02</ResourceForm>
+                    <ResourceVersionFeature>
+                        <ResourceVersionFeatureType>01</ResourceVersionFeatureType>
+                        <FeatureValue>D503</FeatureValue>
+                    </ResourceVersionFeature>
+                    <ResourceLink>dev.bibliomundi.com/uploads/294.png</ResourceLink>
+                </ResourceVersion>
+            </SupportingResource>
+        </CollateralDetail>
+        <PublishingDetail>
+            <Imprint>
+                <ImprintName>EDITORA TESTE</ImprintName>
+            </Imprint>
+            <Publisher>
+                <PublishingRole>01</PublishingRole>
+                <PublisherName>EDITORA TESTE</PublisherName>
+            </Publisher>
+            <CityOfPublication>London</CityOfPublication>
+            <CountryOfPublication>GB</CountryOfPublication>
+            <PublishingStatus>04</PublishingStatus>
+            <PublishingDate>
+                <PublishingDateRole>01</PublishingDateRole>
+                <Date dateformat="00">20150625</Date>
+            </PublishingDate>
+            <SalesRights>
+                <SalesRightsType>02</SalesRightsType>
+                <Territory>
+                    <CountriesIncluded>WORLD</CountriesIncluded>
+                </Territory>
+            </SalesRights>
+            <ROWSalesRightsType>02</ROWSalesRightsType>
+        </PublishingDetail>
+        <ProductSupply>
+            <Market>
+                <Territory>
+                    <CountriesIncluded>BR</CountriesIncluded>
+                </Territory>
+            </Market>
+            <SupplyDetail>
+                <Supplier>
+                    <SupplierRole>04</SupplierRole>
+                    <SupplierName>Bibliomundi</SupplierName>
+                    <TelephoneNumber>+55 213646 3905</TelephoneNumber>
+                    <EmailAddress>contato@bibliomundi.com.br</EmailAddress>
+                    <Website>
+                        <WebsiteRole>34</WebsiteRole>
+                        <WebsiteDescription>
+                            <WebsiteLink>http://www.bibliomundi.com.br</WebsiteLink>
+                        </WebsiteDescription>
+                    </Website>
+                </Supplier>
+                <ProductAvailability>20</ProductAvailability>
+                <Price>
+                    <PriceType>02</PriceType>
+                    <PriceStatus>02</PriceStatus>
+                    <PriceAmount>0.99</PriceAmount>
+                    <CurrencyCode>BRL</CurrencyCode>
+                </Price>
+            </SupplyDetail>
+        </ProductSupply>
+    </Product>
