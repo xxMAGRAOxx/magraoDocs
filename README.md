@@ -48,8 +48,10 @@ catch(\BBM\Server\Exception $e)
 </pre>
 
 # Passo 2 - Inserindo os ebooks em sua loja
-Uma vez com o xml dos nossos ebooks, você pode trabalhar da maneira que achar melhor, mas recomendamos fortemente que utilize um parser, como o SimpleXml do php, por exemplo. Segue abaixo um trecho do xml que será retornado.
+Uma vez com o xml dos nossos ebooks, você pode trabalhar da maneira que achar melhor, mas recomendamos fortemente que utilize um parser, como o SimpleXML do php, por exemplo. Será de sua responsabilidade inserir os ebooks com as informações mínimas necessárias em sua loja. Recomendamos também que não insira ebooks que não estão disponíveis para venda, no momento da importação, e para isso você deverá realizar uma checagem através das tags <PublishingStatus> e <ProductAvailability>. Clicando <a target="blank" href="https://github.com/xxMAGRAOxx/magraoDocs/blob/master/onix_example.xml">aqui</a> você pode ver um exemplo de um xml Onix e de quais informações consideramos essenciais.
 
 # Passo 3 - Realizando atualizações diárias
+
+# Passo 4 - Realizando uma venda
 
 # Tratando erros
