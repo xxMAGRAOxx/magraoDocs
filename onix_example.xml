@@ -1,5 +1,21 @@
-<ONIXMessage
-    xmlns="http://ns.editeur.org/onix/3.0/reference" release="3.0">
+Logotipo do Google Drive
+Adicionar ao Google Drive
+Kit Integração5 itens
+Arquivo compactado
+Guia Completo ONIX Pt-BR.zip
+PDF
+Manual Integração - Bibliomundi.pdf
+Arquivo compactado
+Manual Original Onix.zip
+
+onix.essencial.xml
+PDF
+WebServiceDocs-Bibliomundi.pdf
+
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<ONIXMessage release="3.0"
+    xmlns="http://ns.editeur.org/onix/3.0/reference">
     <Header>
         <Sender>
             <SenderName>BiblioMundi</SenderName>
@@ -13,166 +29,229 @@
     </Header>
     <Product>
         <RecordReference>com.bibliomundi.onix.294</RecordReference>
+        <!-- Número de série do catálogo para evitar leitura duplicada -->
         <NotificationType>03</NotificationType>
-        <RecordSourceType>04</RecordSourceType>
+        <!-- identifica que tipo de ação este registro está tomando (novo produto, update, exclusão, etc) - Para a lista completa de códigos, vá ao item "P.1.2" - Lista 01 -->
         <ProductIdentifier>
             <ProductIDType>01</ProductIDType>
+            <!-- Código 01 informa que o código no <IDValue> deste bloco se trata de um ID interno, neste caso da Bibliomundi. -->
             <IDTypeName>Bibliomundi</IDTypeName>
             <IDValue>294</IDValue>
+            <!-- ID do ebook. Usado para realizar registro de venda e requisição de download. -->
         </ProductIdentifier>
         <ProductIdentifier>
             <ProductIDType>15</ProductIDType>
-            <IDValue/>
+            <!-- Código 15 informa o ISBN da obra no <IDValue> deste bloco. -->
+            <IDValue></IDValue>
         </ProductIdentifier>
         <DescriptiveDetail>
-            <ProductComposition>00</ProductComposition>
-            <ProductForm>ED</ProductForm>
             <ProductFormDetail>E101</ProductFormDetail>
-            <CountryOfManufacture>BR</CountryOfManufacture>
+            <!-- Indica o formato do produto. E101 indica que o produto se trata de um epub. -->
             <EpubTechnicalProtection>03</EpubTechnicalProtection>
-        </DescriptiveDetail>
-        <TitleDetail>
-            <TitleType>01</TitleType>
-            <TitleElement>
+            <!-- Tipo de DRM aplicado no produto. 03 indica que o produto é protegido pelo DRM Adobe. Nós trabalhamos também com proteção de marca d'água (02) e sem proteção (00). -->
+            <Collection>
+                <!-- Bloco opcional APENAS para quando a obra for parte de uma coleção -->
+                <TitleDetail>
+                    <TitleElement>
+                        <TitleText>Revoluções</TitleText>
+                        <!-- Título da coleção a que o produto pertence. -->
+                    </TitleElement>
+                </TitleDetail>
+            </Collection>
+            <TitleDetail>
+                <!-- Bloco em que informa o título do produto -->
+                <TitleElement>
+                    <TitleText>A Revolução Portugueza</TitleText>
+                    <!-- Título do produto -->
+                    <Subtitle>O 31 de Janeiro (Porto 1891)</Subtitle>
+                    <!-- Subtítulo do produto -->
+                </TitleElement>
+            </TitleDetail>
+            <Contributor>
                 <SequenceNumber>1</SequenceNumber>
-                <TitleElementLevel>01</TitleElementLevel>
-                <TitleText>A Revolução Portugueza</TitleText>
-                <Subtitle>O 31 de Janeiro (Porto 1891)</Subtitle>
-            </TitleElement>
-        </TitleDetail>
-        <Contributor>
-            <SequenceNumber>1</SequenceNumber>
-            <ContributorRole>A01</ContributorRole>
-            <NameIdentifier>
-                <NameIDType>01</NameIDType>
-                <IDTypeName>autor tipo teste</IDTypeName>
-                <IDValue>123</IDValue>
-            </NameIdentifier>
-            <PersonNameInverted>Abreu, Francisco</PersonNameInverted>
-            <NamesBeforeKey>Francisco</NamesBeforeKey>
-            <KeyNames>Abreu</KeyNames>
-            <BiographicalNote textformat="05">
-                <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi dolor. Suspendisse bibendum dolor ut velit rhoncus dignissim. Integer pharetra tellus vel mauris posuere, sed sollicitudin nibh feugiat. Nunc nec dui sit amet sem bibendum iaculis non ut ante. Fusce et imperdiet lorem, non rhoncus tortor. Nullam ut nisl eros. Donec fermentum risus vel consequat lobortis. Curabitur gravida ultrices pulvinar. Fusce sed volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-</p>
-            </BiographicalNote>
-            <Website>
-                <WebsiteRole>06</WebsiteRole>
-                <WebsiteLink/>
-            </Website>
-            <ContributorPlace>
-                <ContributorPlaceRelator>04</ContributorPlaceRelator>
-                <LocationName>rio de janeiro</LocationName>
-            </ContributorPlace>
-        </Contributor>
-        <ContributorStatement>Escrito e editado por Francisco Abreu</ContributorStatement>
-        <EditionNumber>1</EditionNumber>
-        <Language>
-            <LanguageRole>01</LanguageRole>
-            <LanguageCode>por</LanguageCode>
-        </Language>
-        <Extent>
-            <ExtentType>00</ExtentType>
-            <ExtentValue>11111</ExtentValue>
-            <ExtentUnit>03</ExtentUnit>
-        </Extent>
-        <Extent>
-            <ExtentType>22</ExtentType>
-            <ExtentValue>1024</ExtentValue>
-            <ExtentUnit>17</ExtentUnit>
-        </Extent>
-        <Subject>
-            <MainSubject/>
-            <SubjectSchemeIdentifier>10</SubjectSchemeIdentifier>
-            <SubjectCode>PER003100</SubjectCode>
-        </Subject>
-        <Subject>
-            <MainSubject/>
-            <SubjectSchemeIdentifier>01</SubjectSchemeIdentifier>
-            <SubjectCode>130</SubjectCode>
-        </Subject>
-        <Audience>
-            <AudienceCodeType>01</AudienceCodeType>
-            <AudienceCodeValue>02</AudienceCodeValue>
-        </Audience>
-        <AudienceRange>
-            <AudienceRangeQualifier>17</AudienceRangeQualifier>
-            <AudienceRangePrecision>03</AudienceRangePrecision>
-            <AudienceRangeValue>6</AudienceRangeValue>
-        </AudienceRange>
+                <!-- Indica a ordem preferencial de apresentação dos colaboradores. -->
+                <ContributorRole>A01</ContributorRole>
+                <!-- Indica o tipo de contribuidor do produto. A01 indica que se trata do autor do ebook. Podem ser informados também o ilustrador, co-autor, revisor, etc. -->
+				!
+                <ContributorRoleDescription>Autor</ContributorRoleDescription>
+                <!-- Descrição do tipo de colaborador informado em <ContributorRole> -->
+                <NameIdentifier>
+                    <IDTypeName>autor tipo teste</IDTypeName>
+                    <!-- Nome do autor -->
+                    <IDValue>123</IDValue>
+                    <!-- Identificador do Autor -->
+                </NameIdentifier>
+                <NamesBeforeKey>Francisco</NamesBeforeKey>
+                <KeyNames>Abreu</KeyNames>
+                <BiographicalNote textformat='05'>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi dolor. Suspendisse bibendum dolor ut velit rhoncus dignissim. Integer pharetra tellus vel mauris posuere, sed sollicitudin nibh feugiat. Nunc nec dui sit amet sem bibendum iaculis non ut ante. Fusce et imperdiet lorem, non rhoncus tortor. Nullam ut nisl eros. Donec fermentum risus vel consequat lobortis. Curabitur gravida ultrices pulvinar. Fusce sed volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                </BiographicalNote>
+                <!-- Nota biográfica do autor -->
+                <Website>
+                    <!-- Caso o contribuidor tenha um site voltado para o público, este é apresentado nesta tag. -->
+                    <WebsiteRole>06</WebsiteRole>
+                    <!-- informa o propósito do site, sendo 06 o site do próprio contribuidor.-->
+                    <WebsiteLink></WebsiteLink>
+                    <!-- link para o website -->
+                </Website>
+            </Contributor>
+            <EditionNumber>1</EditionNumber>
+            <!-- Número da edição do ebook -->
+            <Language>
+                <!-- Bloco que informa o idioma -->
+                <LanguageRole>01</LanguageRole>
+                <!-- Informa o que o idioma informado está relacionando. 01 significa que é o idioma do texto do produto. Poderia informar o idioma original do qual a obra foi traduzida. -->
+                <LanguageCode>por</LanguageCode>
+                <!-- Informa o idioma -->
+				!
+                <LanguageCodeDescription>Português</LanguageCodeDescription>
+                <!-- Descrição do código do idioma. -->
+            </Language>
+            <Extent>
+                <!-- Bloco que informa as extensões do produto. Número de página, tamanho do arquivo (Kbyte, Mbyte) -->
+                <ExtentType>00</ExtentType>
+                <!-- Do que se trata. 00 indica que se trata do número de páginas. -->
+                <ExtentValue>111</ExtentValue>
+                <!-- valor da extensão -->
+                <ExtentUnit>03</ExtentUnit>
+                <!-- Indica a unidade de medida do valor informado. 03 indica "Páginas", então neste caso o produto possui 111 Páginas. -->
+            </Extent>
+            <Extent>
+                <ExtentType>22</ExtentType>
+                <!-- 22 indica o tamanho do arquivo. -->
+                <ExtentValue>1024</ExtentValue>
+                <!-- valor da extensão -->
+                <ExtentUnit>18</ExtentUnit>
+                <!-- 18 indica "KBytes", então neste caso o produto possui 1024 KBytes  -->
+            </Extent>
+            <Subject>
+                <!-- Assunto do produto -->
+                <SubjectSchemeIdentifier>10</SubjectSchemeIdentifier>
+                <!-- Indica o tipo do assunto da categoria. 10 indica que se trata de um BISAC -->
+                <SubjectCode>PER003100</SubjectCode>
+                <!-- Código BISAC do assunto -->
+				!
+                <SubjectCodeDescription>Descrição</SubjectCodeDescription>
+                <!-- Descrição do <SubjectCode> -->
+            </Subject>
+            <Subject>
+                <SubjectSchemeIdentifier>01</SubjectSchemeIdentifier>
+                <!-- Indica que se trata de uma categoria de CDD. -->
+                <SubjectCode>130</SubjectCode>
+                <!-- Código CDD do assunto -->
+				!
+                <SubjectCodeDescription>Descrição</SubjectCodeDescription>
+                <!-- Descrição do <SubjectCode> -->
+            </Subject>
+            <AudienceRange>
+                <AudienceRangePrecision>03</AudienceRangePrecision>
+                <!-- Indica o tipo de abrangencia da classificação, 03 indica que é "a partir de...[idade]"  -->
+                <AudienceRangeValue>6</AudienceRangeValue>
+                <!-- Valor de [idade] da classificação. Neste caso a classificação é: "A partir de 6" -->
+            </AudienceRange>
+        </DescriptiveDetail>
         <CollateralDetail>
             <TextContent>
                 <TextType>03</TextType>
+                <!-- Indica que tipo de texto está na tag <Text>. 03 indica que se trata de uma sinopse -->
                 <ContentAudience>00</ContentAudience>
-                <Text textformat="05">
-                    <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi dolor. Suspendisse bibendum dolor ut velit rhoncus dignissim. Integer pharetra tellus vel mauris posuere, sed sollicitudin nibh feugiat. Nunc nec dui sit amet sem bibendum iaculis non ut ante. Fusce et imperdiet lorem, non rhoncus tortor. Nullam ut nisl eros. Donec fermentum risus vel consequat lobortis. Curabitur gravida ultrices pulvinar. Fusce sed volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam gravida metus vel justo elementum, vel aliquet ex tincidunt. Maecenas ullamcorper lacus non est tempor dignissim. Proin interdum facilisis quam vehicula rhoncus. Nullam mattis commodo mi et accumsan. Duis quis maximus nunc. Pellentesque non dapibus turpis. Maecenas ac libero id leo iaculis consequat eget non ante. Duis ac hendrerit quam. Cras eget sollicitudin metus. Sed et scelerisque leo. Sed tincidunt pretium felis, sit amet luctus est viverra ac. Pellentesque tristique consectetur el
-</p>
+                <!-- Indica o tipo de público para o qual o texto é indicado. 00 informa que é para "qualquer tipo de público". -->
+                <Text textformat='05'>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi dolor. Suspendisse bibendum dolor ut velit rhoncus dignissim. Integer pharetra tellus vel mauris posuere, sed sollicitudin nibh feugiat. Nunc nec dui sit amet sem bibendum iaculis non ut ante. Fusce et imperdiet lorem, non rhoncus tortor. Nullam ut nisl eros. Donec fermentum risus vel consequat lobortis. Curabitur gravida ultrices pulvinar. Fusce sed volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam gravida metus vel justo elementum, vel aliquet ex tincidunt. Maecenas ullamcorper lacus non est tempor dignissim. Proin interdum facilisis quam vehicula rhoncus. Nullam mattis commodo mi et accumsan. Duis quis maximus nunc.
+
+Pellentesque non dapibus turpis. Maecenas ac libero id leo iaculis consequat eget non ante. Duis ac hendrerit quam. Cras eget sollicitudin metus. Sed et scelerisque leo. Sed tincidunt pretium felis, sit amet luctus est viverra ac. Pellentesque tristique consectetur el</p>
                 </Text>
+                <!-- Texto em si. Neste caso a sinopse -->
             </TextContent>
             <SupportingResource>
+                <!-- Recursos extras da obra. -->
                 <ResourceContentType>01</ResourceContentType>
-                <ContentAudience>00</ContentAudience>
-                <ResourceMode>03</ResourceMode>
+                <!-- Informa de que tipo de arquivo está sendo enviado. 01 informa que se trata de uma capa -->
                 <ResourceVersion>
-                    <ResourceForm>02</ResourceForm>
                     <ResourceVersionFeature>
+                        <!-- Caracteristicas do arquivo -->
                         <ResourceVersionFeatureType>01</ResourceVersionFeatureType>
+                        <!-- Informa que tipo de caracterristica está sendo informada -->
                         <FeatureValue>D503</FeatureValue>
+                        <!-- Informa a extensão do arquivo sendo enviado. D503 informa que é um arquivo de imagem PNG -->
                     </ResourceVersionFeature>
                     <ResourceLink>dev.bibliomundi.com/uploads/294.png</ResourceLink>
+                    <!-- Link para o recurso descrito acima. Neste caso se trata da capa do livro em formato PNG. -->
+                    <ContentDate>
+                        <Date dateformat='00'>20150825</Date>
+                    </ContentDate>
                 </ResourceVersion>
             </SupportingResource>
         </CollateralDetail>
         <PublishingDetail>
             <Imprint>
                 <ImprintName>EDITORA TESTE</ImprintName>
+                <!-- Informa o nome do selo que publicou o produto. Este é o campo que deve ser utilizado como "nome da Editora" -->
             </Imprint>
             <Publisher>
-                <PublishingRole>01</PublishingRole>
                 <PublisherName>EDITORA TESTE</PublisherName>
+                <!-- Informa o nome Grupo Editorial que o Selo faz parte. -->
+                <Website>
+                    <WebsiteLink>editorateste.com.br</WebsiteLink>
+                </Website>
             </Publisher>
             <CityOfPublication>London</CityOfPublication>
+            <!-- Cidade em que o produto foi publicado. -->
             <CountryOfPublication>GB</CountryOfPublication>
+            <!-- País de publicação do produto. -->
             <PublishingStatus>04</PublishingStatus>
+            <!-- Status do produto. 04 Informa que o produto está Ativo e disponível para venda. Os status disponíveis nesta classificação estão na lista de códigos 64. -->
             <PublishingDate>
-                <PublishingDateRole>01</PublishingDateRole>
-                <Date dateformat="00">20150625</Date>
+                <Date dateformat='00'>20150625</Date>
+                <!-- Indica a data de publicação no modelo AAAAMMDD -->
             </PublishingDate>
             <SalesRights>
-                <SalesRightsType>02</SalesRightsType>
+                <!-- Indica os direitos autorais de territorialidade da obra. Onde a obra pode ser vendida -->
                 <Territory>
                     <CountriesIncluded>WORLD</CountriesIncluded>
+                    <!-- Território(s) ou país(es) para o qual o produto pode ser vendido. WORLD significa que pode ser para o mundo todo, sem restrições. Quando informados países a vulso são apenas os códigos separados por espaço (BR PT US FR) -->
                 </Territory>
             </SalesRights>
-            <ROWSalesRightsType>02</ROWSalesRightsType>
         </PublishingDetail>
         <ProductSupply>
             <Market>
+                <!-- Mercado para o qual o produto está sendo distribuido -->
                 <Territory>
                     <CountriesIncluded>BR</CountriesIncluded>
+                    <!-- País(es) para onde o produto é distribuido -->
                 </Territory>
             </Market>
             <SupplyDetail>
-                <Supplier>
-                    <SupplierRole>04</SupplierRole>
-                    <SupplierName>Bibliomundi</SupplierName>
-                    <TelephoneNumber>+55 213646 3905</TelephoneNumber>
-                    <EmailAddress>contato@bibliomundi.com.br</EmailAddress>
-                    <Website>
-                        <WebsiteRole>34</WebsiteRole>
-                        <WebsiteDescription>
-                            <WebsiteLink>http://www.bibliomundi.com.br</WebsiteLink>
-                        </WebsiteDescription>
-                    </Website>
-                </Supplier>
                 <ProductAvailability>20</ProductAvailability>
+                <!-- Informa o status do produto com o fornecedor. 20 indica que o produto está disponível. -->
                 <Price>
-                    <PriceType>02</PriceType>
-                    <PriceStatus>02</PriceStatus>
+                    <Discount>
+                        <!-- Bloco que informa algum desconto que um produto venha a ter no caso de uma promoção -->
+                        <DiscountAmount>4.59</DiscountAmount>
+                        <!-- Valor do desconto na moeda do produto -->
+                    </Discount>
                     <PriceAmount>0.99</PriceAmount>
+                    <!-- Preço cheio do produto -->
                     <CurrencyCode>BRL</CurrencyCode>
+                    <!-- Moeda na qual o produto está sendo vendido -->
+                    <!-- Informa as datas de início e fim se houver uma promoção em andamento -->
+                    <PriceDate>
+                        <PriceDateRole>14</PriceDateRole>
+                        <!-- Indica que é a data de início da promoção. -->
+                        <Date>20150801</Date>
+                        <!-- Data de início da promoção. -->
+                    </PriceDate>
+                    <PriceDate>
+                        <PriceDateRole>15</PriceDateRole>
+                        <!-- Indica que é a data de fim da promoção. -->
+                        <Date>20150825</Date>
+                        <!-- Data de fim da promoção. -->
+                    </PriceDate>
                 </Price>
             </SupplyDetail>
         </ProductSupply>
     </Product>
+</ONIXMessage>
+onix.essencial.xml
+4 of 5 items
+Guia Completo ONIX Pt-BR.zipManual Integração - Bibliomundi.pdfManual Original Onix.ziponix.essencial.xmlWebServiceDocs-Bibliomundi.pdfDisplaying onix.essencial.xml.
