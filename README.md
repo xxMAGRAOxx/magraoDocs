@@ -1,4 +1,55 @@
-# magraoDocs
-<div class="highlight highlight-source-shell"><pre>curl -H <span class="pl-s"><span class="pl-pds">'</span>Authentication: bearer ACCESS_TOKEN <span class="pl-pds">'</span></span> \
-  -H <span class="pl-s"><span class="pl-pds">'</span>User-Agent: MyApp (name@email.com)<span class="pl-pds">'</span></span> \
-  https://api.tiendanube.com/v1/123456/products</pre></div>
+# Visão geral
+Para que você possa vender nossos ebooks em sua loja serão necessários alguns passos e o auxílio de um programador.
+<br />
+Obs. Esta api requer o PHP como linguagem de programação e caso você trabalhe com outras linguagens disponibilizamos um webservice completo que você pode verificar <a href="http://www.google.com.br">aqui</a>.
+
+
+# Requerimentos
+Curl 
+<br />
+PHP 5.5  ou maior
+
+# Fluxo
+1. Antes de começarmos você irá precisar de uma chave de identificação e uma senha. Caso ainda não possua entre em contato conosco através do e-mail contato@bibliomundi.com.br
+<br />
+2. Importar o nosso catálogo completo. Retornaremos para você um XML no padrão Onix com todos os ebooks cadastrados em nossa plataforma.
+<br />
+3. Inserir os ebooks em sua base de dados e posteriormente disponibilizá-los para venda em sua loja.
+<br />
+4. Realizar atualizações diárias para checar se existem novos ebooks, se existem ebooks a serem atualizados(Mudança de nome, por exemplo) ou se existem ebooks que requerem que você delete de sua base(Por não estarem mais sendo distribuídos por nós, por exemplo). Retornaremos para você um XML no padrão Onix com os ebooks que precisam ser atualizados, inseridos ou deletados.
+
+# Instalação
+
+Faça o download da nossa api e inclua em seu projeto. <br />
+Faça a chamada ao arquivo “autoload.php”, que se encontra dentro da pasta "lib" e já terá acesso a todas as classes.
+<pre>Ex: require 'lib/autoload.php';</pre>
+
+# Passo 1 - Importando os ebooks para a sua loja
+Intancie a classe Catalog passando suas credencias como parâmetro.
+<pre>$catalog = new BBM\Catalog('YOUR_API_KEY', 'YOUR_API_SECRET');</pre>
+Defina se o ambiente que irá importar, os nossos ebooks, é o de produção ou de testes.
+<pre>
+$catalog->environment = 'sandbox'; 
+ou
+$catalog->environment = 'production';
+</pre>
+
+O trecho de código a seguir valida suas credenciais e importa os ebooks.
+<pre>
+try
+{
+    $catalog->validate();//Valida suas credenciais
+    $xml = $catalog->get();//Retorna um XML no formato string e no padrão Onix
+}
+catch(\BBM\Server\Exception $e)
+{
+    throw $e;
+}
+</pre>
+
+# Passo 2 - Inserindo os ebooks em sua loja
+Uma vez com o xml dos nossos ebooks, você pode trabalhar da maneira que achar melhor, mas recomendamos fortemente que utilize um parser, como o SimpleXml do php, por exemplo. Segue abaixo um trecho do xml que será retornado.
+
+# Passo 3 - Realizando atualizações diárias
+
+# Tratando erros
