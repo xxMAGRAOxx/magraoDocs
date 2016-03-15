@@ -118,10 +118,10 @@ e então adicione o Usuário
 <pre>$purchase->setCustomer($customer);</pre>
 
 Em seguida adicione o ebook passando o ID e preço do mesmo.
-<pre>$purchase->addItem(3, 1);</pre>
+<pre>$purchase->addItem(3, 9.99);</pre>
 
 Obs. Você pode adicionar quantos ebooks forem necessários, bastando apenas repetir o procedimento anterior para cada ebook.
 
-<pre>
+Em seguida faça a validação do(s) ebook(s) e checkout.
 
 # Tratando erros
