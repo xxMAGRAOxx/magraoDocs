@@ -1,32 +1,32 @@
 # Visão geral
 Para que você possa vender nossos ebooks em sua loja serão necessários alguns passos e o auxílio de um programador.
-<br />
+
 Obs. Esta api requer o PHP como linguagem de programação e caso você trabalhe com outras linguagens disponibilizamos um webservice completo que você pode verificar <a href="http://www.google.com.br">aqui</a>.
 
 
 # Requerimentos
 <a href="http://php.net/manual/en/book.curl.php" target="blank">cURL</a>
-<br />
+
 <a href="http://php.net/" target="blank">PHP 5.5</a>
-<br />
+
 Conhecer o padrão <a href="http://www.editeur.org/83/Overview/" target="blank">Onix</a>
-<br />
+
 Chave de identificação e senha. Se ainda não possui solicite-as através do e-mail contato@bibliomundi.com.br. Reponderemos em instantes.
 
 # Fluxo
 1. Importar o nosso catálogo completo. Retornaremos para você um XML no padrão Onix com todos os ebooks cadastrados em nossa plataforma.
-<br />
+
 2. Inserir os ebooks em sua base de dados seguindo as normas do padrão Onix.
-<br />
+
 3. Realizar atualizações diárias para checar se existem novos ebooks, se existem ebooks a serem atualizados(Mudança de nome, por exemplo) ou se existem ebooks que requerem que você delete de sua base(Por não estarem mais sendo distribuídos por nós, por exemplo). Retornaremos para você um XML no padrão Onix com os ebooks que precisam ser atualizados, inseridos ou deletados.
-<br />
+
 4. Disponibilizar os ebooks para venda em sua loja.
-<br />
+
 5. Liberar o download do ebook para o cliente. 
  
 # Instalação
 
-Faça o download da nossa api e inclua em seu projeto. <br />
+Faça o download da nossa api e inclua em seu projeto.
 Basta Fazer uma chamada ao arquivo “autoload.php”, que se encontra dentro da pasta "lib" e já terá acesso a todas as funcionalidades.
 <pre>Ex: require 'lib/autoload.php';</pre>
 
@@ -60,7 +60,7 @@ Uma vez com o xml dos nossos ebooks, você pode trabalhar da maneira que achar m
 
 # Passo 3 - Realizando atualizações diárias
 Realizamos atualizações diárias em nosso sistema e você precisará, também diariamente, criar uma rotina para checar se existem ebooks a serem inseridos, atualizados ou deletados.
-Recomendamos que crie uma agendador de tarefas para rodar entre 01 e 06 da manhã(UTC-3) afim de evitar que ebooks sejam disponibilizados com dados defasados podendo assim causar erros na venda.<br />
+Recomendamos que crie uma agendador de tarefas para rodar entre 01 e 06 da manhã(UTC-3) afim de evitar que ebooks sejam disponibilizados com dados defasados podendo assim causar erros na venda.
 
 Passe apenas um terceiro parâmetro chamado 'updates'.
 
@@ -85,12 +85,12 @@ catch(\BBM\Server\Exception $e)
 </pre>
 
 Para cada tag &lt;produto&gt; existirá uma tag chamada &lt;NotificationType&gt; indicando a operação a ser realizada.
-<br />
+
 Ex: 03 -> inserir. 04 -> Atualizar. 05 -> Deletar. Para a lista completa de códigos, vá ao item "P.1.2" da documentação Onix.
 
 # Passo 4 - Realizando uma venda
 Uma vez que você disponibilizar os ebooks em sua loja, seus clientes estarão aptos a relizar compras. Toda vez que um cliente tentar comprar um produto nosso será necessário que você valide a transação conosco e em caso de aprovação prosseguir para o checkout. Repare que a sua validação e o seu checkout e a nossa validação e o nosso checkout sãos duas coisas distintas. Você deverá sempre validar e fazer o checkout conosco para que tenhamos ciência de que a venda foi efetuada, para então podermos liberar o download para o seu cliente. Tenha isso em mente.
-<br />
+
 Instancie a classe Purchase passando suas credenciais como parâmetro.
 <pre>$purchase = new BBM\Purchase('YOUR_API_KEY', 'YOUR_API_SECRET');</pre>
 
@@ -113,5 +113,15 @@ $customer = [
     'customerState' => 'RJ' // STRING, 2 CHAR STRING THAT INDICATE THE CUSTOMER STATE (RJ, SP, NY, etc)
 ];
 </pre>
+
+e então adicione o Usuário
+<pre>$purchase->setCustomer($customer);</pre>
+
+Em seguida adicione o ebook passando o ID e preço do mesmo.
+<pre>$purchase->addItem(3, 1);</pre>
+
+Obs. Você pode adicionar quantos ebooks forem necessários, bastando apenas repetir o procedimento anterior para cada ebook.
+
+<pre>
 
 # Tratando erros
