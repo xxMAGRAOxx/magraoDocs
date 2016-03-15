@@ -49,7 +49,7 @@ try
 }
 catch(\BBM\Server\Exception $e)
 {
-    throw $e;
+    var_dump($e);
 }
 </pre>
 
@@ -80,7 +80,7 @@ try
 }
 catch(\BBM\Server\Exception $e)
 {
-    throw $e;
+    var_dump($e);
 }
 </pre>
 
@@ -122,6 +122,33 @@ Em seguida adicione o ebook passando o ID e preço do mesmo.
 
 Obs. Você pode adicionar quantos ebooks forem necessários, bastando apenas repetir o procedimento anterior para cada ebook.
 
-Em seguida faça a validação do(s) ebook(s) e checkout.
+Em seguida faça a validação do(s) ebook(s) e posteriormente o checkout.
+
+Fluxo:
+
+- O Usuário compra um ou mais de nossos produtos.
+- Você valida a compra através da função validate();
+- Estando tudo ok você pode prosseguir para realizar tanto o seu quanto o nosso checkout.
+
+Obs.
+
+Não execute a venda antes de realizar o validate, pois existem condições que podem inviabilizar a venda tais como sua loja não estar disponível para venda, problemas com o ebook etc.
+
+Você só deve realizar o checkout conosco quando o pagamento for efetivado pelo cliente
+
+<pre>
+try
+{
+    $purchase->validate();
+    
+    //A transaction key pode ser qualquer coisa que desejar, mas recomendamos que seja a mesma de sua transação. Ela será requisitada quando for efetuar o download do ebook.
+    echo $purchase->checkout('TRANSACTION_KEY', time());
+}
+catch(\BBM\Server\Exception $e)
+{
+    var_dump($e);
+}
+</pre>
+
 
 # Tratando erros
