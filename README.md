@@ -183,4 +183,4 @@ catch(\BBM\Server\Exception $e)
 Ao chamar a função download(), automaticamente o arquivo do ebook será baixado para a máquina do cliente, pois trata-se de um EndPoint.
 
 # Tratando erros
-Erros podem acontecer em todas as etapas(Complete, Update, Validate, Checkout e Download) e será de sua responsabilidade tratá-los e informar ao Usuário, se for o caso. Independente da requisição que esteja sendo feita, sempre retornaremos uma Exception com o código e mensagem do erro.  
+Erros podem acontecer em todas as etapas(Complete, Update, Validate, Checkout e Download) e será de sua responsabilidade tratá-los e informar ao Usuário, se for o caso. Independente da requisição que esteja sendo feita, sempre retornaremos uma Exception com o código e mensagem do erro.
