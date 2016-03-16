@@ -5,13 +5,10 @@ Obs. Esta api requer o PHP como linguagem de programação e caso você trabalhe
 
 
 # Requerimentos
-<a href="http://php.net/manual/en/book.curl.php" target="blank">cURL</a>
-
-<a href="http://php.net/" target="blank">PHP 5.5</a>
-
-Conhecer o padrão <a href="http://www.editeur.org/83/Overview/" target="blank">Onix</a>
-
-Chave de identificação e senha. Se ainda não possui solicite-as através do e-mail contato@bibliomundi.com.br. Reponderemos em instantes.
+- <a href="http://php.net/manual/en/book.curl.php" target="blank">cURL</a>
+- <a href="http://php.net/" target="blank">PHP 5.5</a>
+- Conhecer o padrão <a href="http://www.editeur.org/83/Overview/" target="blank">Onix</a>
+- Chave de identificação e senha. Se ainda não possui solicite-as através do e-mail contato@bibliomundi.com.br. Responderemos em instantes.
 
 # Fluxo
 1. Importar o nosso catálogo completo. Retornaremos para você um XML no padrão Onix com todos os ebooks cadastrados em nossa plataforma.
@@ -56,7 +53,7 @@ catch(\BBM\Server\Exception $e)
 Cada tag &lt;Produto&gt; retornada pelo xml é um ebook. Você irá percorrer todas elas e, seguindo normas do padrão Onix, inserindo em sua base de dados.
 
 # Passo 2 - Inserindo os ebooks em sua loja
-Uma vez com o xml dos nossos ebooks, você pode trabalhar da maneira que achar melhor, mas recomendamos fortemente que utilize um parser, como o SimpleXML do php, por exemplo. Será de sua responsabilidade inserir os ebooks com as informações mínimas necessárias em sua loja. Recomendamos também que não insira ebooks que não estão disponíveis para venda, no momento da importação, e para isso você deverá realizar uma checagem através das tags PublishingStatus e ProductAvailability. Clicando <a target="blank" href="https://github.com/xxMAGRAOxx/magraoDocs/blob/master/onix_example.xml">aqui</a> você pode ver um exemplo de um xml Onix e de quais informações consideramos essenciais.
+Uma vez com o xml dos nossos ebooks, você pode trabalhar da maneira que achar melhor, mas recomendamos fortemente que utilize um parser, como o SimpleXML do php, por exemplo. Será de sua responsabilidade inserir os ebooks com as informações mínimas necessárias em sua loja. Recomendamos também que não insira ebooks que não estão disponíveis para venda, no momento da importação, e para isso você deverá realizar uma checagem através das tags PublishingStatus e ProductAvailability. Clicando <a target="blank" href="https://github.com/xxMAGRAOxx/magraoDocs/blob/master/onix_example.xml">aqui</a> você pode ver um exemplo de um xml no padrão Onix e de quais informações consideramos essenciais.
 
 # Passo 3 - Realizando atualizações diárias
 Realizamos atualizações diárias em nosso sistema e você precisará, também diariamente, criar uma rotina para checar se existem ebooks a serem inseridos, atualizados ou deletados.
@@ -100,7 +97,7 @@ ou
 $catalog->environment = 'sandbox';
 </pre>
 
-Envie os dados do Usuário, que efetuou a compra, respeitando as regras abaixo.
+Envie para nós, os dados do Usuário que efetuou a compra, respeitando as regras abaixo.
 <pre>
 $customer = [
     'customerIdentificationNumber' => 1, // INT, YOUR STORE CUSTOMER ID
@@ -112,15 +109,14 @@ $customer = [
     'customerZipcode' => '31231223', // STRING, POSTAL CODE, ONLY NUMBERS
     'customerState' => 'RJ' // STRING, 2 CHAR STRING THAT INDICATE THE CUSTOMER STATE (RJ, SP, NY, etc)
 ];
-</pre>
 
-e então adicione o Usuário
-<pre>$purchase->setCustomer($customer);</pre>
+$purchase->setCustomer($customer);
+</pre>
 
 Em seguida adicione o ebook passando o ID e preço do mesmo.
 <pre>$purchase->addItem(3, 9.99);</pre>
 
-Obs. Você pode adicionar quantos ebooks forem necessários, bastando apenas repetir o procedimento anterior para cada ebook.
+Obs. Você pode adicionar quantos ebooks forem necessários, bastando apenas repetir o procedimento para cada ebook.
 
 Em seguida faça a validação do(s) ebook(s) e posteriormente o checkout.
 
@@ -132,9 +128,9 @@ Fluxo:
 
 Obs.
 
-Não execute a venda antes de realizar o validate, pois existem condições que podem inviabilizar a venda tais como sua loja não estar disponível para venda, problemas com o ebook etc.
+Não execute a venda antes de validar conosco, pois existem condições que podem inviabilizar a mesma, tais como sua loja não estar disponível para venda, problemas com o ebook etc.
 
-Você só deve realizar o checkout conosco quando o pagamento for efetivado pelo cliente
+Não se esqueça de realizar o checkout conosco e você só deve fazê-lo quando o pagamento for efetivado pelo cliente
 
 <pre>
 try
@@ -142,7 +138,7 @@ try
     $purchase->validate();
     
     //A transaction key pode ser qualquer coisa que desejar, mas recomendamos que seja a mesma de sua transação. Ela será requisitada quando for efetuar o download do ebook.
-    echo $purchase->checkout('TRANSACTION_KEY', time());
+    $purchase->checkout('TRANSACTION_KEY', time());
 }
 catch(\BBM\Server\Exception $e)
 {
@@ -150,5 +146,41 @@ catch(\BBM\Server\Exception $e)
 }
 </pre>
 
+Pronto. Se tudo ocorreu bem, você registrou uma venda em nosso servidor.
+
+# Passo 5 - Fazendo download do ebook
+Uma vez que seu cliente comprou um de nossos ebooks, você validou a compra e realizou o checkout, estará apto a fazer o download do ebook. Caberá a você decidir a maneira de disponibilizar um link(ou algo parecido) para que seu cliente possa efetuar o download. Tudo o que precisa fazer para efetuar o download é nos informar o id da transação e o id do ebook.
+
+Instancie a classe download passando suas credenciais como parâmetro
+<pre>$download = new BBM\Download('YOUR_APY_KEY', 'YOUR_API_SECRET');</pre>
+
+<pre>
+$catalog->environment = 'production';
+ou
+$catalog->environment = 'sandbox';
+</pre>
+
+<pre>
+$data = [
+    'ebook_id' => $EBOOKID,
+    'transaction_time' => time(),
+    'transaction_key' => $TIMESTAMP // A chave que voce utilizou para realizar o checkout
+];
+</pre>
+
+<pre>
+try
+{
+    $download->validate($data);
+    $download->download();// Faz o download do ebook
+}
+catch(\BBM\Server\Exception $e)
+{
+    var_dump($e);
+}
+</pre>
+
+Ao chamar a função download(), automaticamente o arquivo do ebook será baixado para a máquina do cliente, pois trata-se de um EndPoint.
 
 # Tratando erros
+Erros podem acontecer em todas as etapas(Complete, Update, Validate, Checkout e Download) e será de sua responsabilidade tratá-los e informar ao Usuário, se for o caso. Independente da requisição que esteja sendo feita, sempre retornaremos uma Exception com o código e mensagem do erro.  
