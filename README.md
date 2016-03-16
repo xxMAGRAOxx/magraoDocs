@@ -8,7 +8,7 @@ Obs. Esta api requer o PHP como linguagem de programação e caso você trabalhe
 - <a href="http://php.net/manual/en/book.curl.php" target="blank">cURL</a>
 - <a href="http://php.net/" target="blank">PHP 5.5</a>
 - Conhecer o padrão <a href="http://www.editeur.org/83/Overview/" target="blank">Onix</a>
-- Chave de identificação e senha. Se ainda não possui solicite-as através do e-mail contato@bibliomundi.com.br. Responderemos em instantes.
+- Chave de identificação e senha. Se ainda não possuir, solicite-as através do e-mail contato@bibliomundi.com.br. Responderemos em instantes.
 
 # Fluxo
 1. Importar o nosso catálogo completo. Retornaremos para você um XML no padrão Onix com todos os ebooks cadastrados em nossa plataforma.
@@ -42,7 +42,7 @@ O trecho de código a seguir valida suas credenciais e importa os ebooks.
 try
 {
     $catalog->validate();//Valida suas credenciais
-    $xml = $catalog->get();//Retorna um XML dos nossos ebooks no formato string e no padrão Onix
+    $xml = $catalog->get();//Retorna um XML, no formato string e no padrão Onix, contendo todos os nossos ebooks
 }
 catch(\BBM\Server\Exception $e)
 {
