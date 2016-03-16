@@ -23,8 +23,8 @@ Obs. Esta api requer o PHP como linguagem de programação e caso você trabalhe
  
 # Instalação
 
-Faça o download da nossa api e inclua em seu projeto.
-Basta Fazer uma chamada ao arquivo “autoload.php”, que se encontra dentro da pasta "lib" e já terá acesso a todas as funcionalidades.
+Basta apenas fazer o download(Ou clonar), incluir em seu projeto e em seguida fazer uma chamada ao arquivo “autoload.php”, que se encontra dentro da pasta "lib". Pronto, você já tem acesso a todas as funcionalidades da Api.
+
 <pre>Ex: require 'lib/autoload.php';</pre>
 
 # Passo 1 - Importando os ebooks para a sua loja
