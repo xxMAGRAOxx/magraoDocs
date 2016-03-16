@@ -1,7 +1,7 @@
-# Visão geral
-Para que você possa vender nossos ebooks em sua loja serão necessários alguns passos e o auxílio de um programador.
+# Visão geral da Api
+Nós somos a Bibliomundi, uma distribuidora de livros digitais e disponibilizamos esta Api com o objetivo de facilitar a integração dos ebooks cadastrados em nossa plataforma com a sua loja. Para que você possa vender nossos ebooks em sua loja serão necessários alguns passos e o auxílio de um programador.
 
-Obs. Esta api requer o PHP como linguagem de programação e caso você trabalhe com outras linguagens disponibilizamos um webservice completo que você pode verificar <a href="http://www.google.com.br">aqui</a>.
+Obs. Esta api requer o PHP como linguagem de programação e caso você trabalhe com outras linguagens, disponibilizamos um webservice completo que você pode verificar <a href="http://www.google.com.br">aqui</a>.
 
 
 # Requerimentos
@@ -42,7 +42,7 @@ O trecho de código a seguir valida suas credenciais e importa os ebooks.
 try
 {
     $catalog->validate();//Valida suas credenciais
-    $xml = $catalog->get();//Retorna um XML, no formato string e no padrão Onix, contendo todos os nossos ebooks
+    $xml = $catalog->get();//Retorna um XML, no formato string e no padrão Onix, contendo todos os ebooks cadastrados em nossa plataforma
 }
 catch(\BBM\Server\Exception $e)
 {
@@ -53,7 +53,7 @@ catch(\BBM\Server\Exception $e)
 Cada tag &lt;Produto&gt; retornada pelo xml é um ebook. Você irá percorrer todas elas e, seguindo normas do padrão Onix, inserindo em sua base de dados.
 
 # Passo 2 - Inserindo os ebooks em sua loja
-Uma vez com o xml dos nossos ebooks, você pode trabalhar da maneira que achar melhor, mas recomendamos fortemente que utilize um parser, como o SimpleXML do php, por exemplo. Será de sua responsabilidade inserir os ebooks com as informações mínimas necessárias em sua loja. Recomendamos também que não insira ebooks que não estão disponíveis para venda, no momento da importação, e para isso você deverá realizar uma checagem através das tags PublishingStatus e ProductAvailability. Clicando <a target="blank" href="https://github.com/xxMAGRAOxx/magraoDocs/blob/master/onix_example.xml">aqui</a> você pode ver um exemplo de um xml no padrão Onix e de quais informações consideramos essenciais.
+Uma vez com o xml dos nossos ebooks, você pode trabalhar da maneira que achar melhor, mas recomendamos fortemente que utilize um parser, como o SimpleXML do php, por exemplo. Será de sua responsabilidade inserir os ebooks com as informações mínimas necessárias em sua loja. Recomendamos também que não insira ebooks que não estão disponíveis para venda, no momento da importação, e para isso você deverá realizar uma checagem através das tags &lt;PublishingStatus&gt; e &lt;ProductAvailability&gt;. Clicando <a target="blank" href="https://github.com/xxMAGRAOxx/magraoDocs/blob/master/onix_example.xml">aqui</a> você pode ver um exemplo de um xml no padrão Onix e de quais informações consideramos essenciais.
 
 # Passo 3 - Realizando atualizações diárias
 Realizamos atualizações diárias em nosso sistema e você precisará, também diariamente, criar uma rotina para checar se existem ebooks a serem inseridos, atualizados ou deletados.
