@@ -115,7 +115,7 @@ $purchase->setCustomer($customer);
 </pre>
 
 Em seguida adicione o ebook passando o ID e preço do mesmo.
-<pre>$purchase->addItem(3, 9.99);</pre>
+<pre>$purchase->addItem($ebookID, $ebookPrice);</pre>
 
 Obs. Você pode adicionar quantos ebooks forem necessários, bastando apenas repetir o procedimento para cada ebook.
 
