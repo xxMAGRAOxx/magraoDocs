@@ -1,29 +1,26 @@
-# Complete e update
-
- Missing required property [scope] for root;
- Missing required property [clientID] for root;
- Invalid value for [root.clientID], maximum length is [42];
- Invalid value(s) for [root.scope], allowable values are [“complete”, “updates”].
+# Quando importando ou atualizando os ebooks
+- Missing required property [scope] for root;
+- Missing required property [clientID] for root;
+- Invalid value for [root.clientID], maximum length is [42];
+- Invalid value(s) for [root.scope], allowable values are [“complete”, “updates”].
  
-# Validate
-
- The simulation has been executed successfully;
- Your store is not active for sale, contact the support;
- You cannot sell this publication (E-book ID <Bibliomundi E-book ID)>);
- The price (<price>) of the e-book (<E-book ID>) must be with a maximum value at 100% of list price (<List Price>);
- Missing required property [clientID] for [root];
- Missing required property [customerIdentificationNumber] for [root]];
- Missing required property [customerFullname] for [root];
- Missing required property [customerEmail] for [root];
- Missing required property [customerGender] for [root];
- Missing required property [customerBirthday] for [root];
- Missing required property [customerZipcode] for [root];
- Missing required property [customerCountry] for [root];
- Missing required property [customerState] for [root];
- Missing required property [items] for [root];
- Not enough array items for [root.items], minimum is [1];
- Missing required property [bibliomundiEbookID] for [root.items[i]];
- Missing required property [price] for [root.items[i]];
+# Quando validando uma venda
+- Your store is not active for sale, contact the support;
+- You cannot sell this publication (E-book ID <Bibliomundi E-book ID)>);
+- The price (<price>) of the e-book (<E-book ID>) must be with a maximum value at 100% of list price (<List Price>);
+- Missing required property [clientID] for [root];
+- Missing required property [customerIdentificationNumber] for [root]];
+- Missing required property [customerFullname] for [root];
+- Missing required property [customerEmail] for [root];
+- Missing required property [customerGender] for [root];
+- Missing required property [customerBirthday] for [root];
+- Missing required property [customerZipcode] for [root];
+- Missing required property [customerCountry] for [root];
+- Missing required property [customerState] for [root];
+- Missing required property [items] for [root];
+- Not enough array items for [root.items], minimum is [1];
+- Missing required property [bibliomundiEbookID] for [root.items[i]];
+- Missing required property [price] for [root.items[i]];
 - Invalid value for [root.clientID], maximum length is [42];
 - String too long for [root.customerIdentificationNumber], maximum length is [18];
 - String too long for [root.customerFullname], maximum length is [255];
@@ -42,7 +39,27 @@ R","IS","IT","JE","JM","JO","JP","KE","KG","KH","KI","KM","KN","KP","KR","KW","K
 Q","MR","MS","MT","MU","MV","MW","MX","MY","MZ","NA","NC","NE","NF","NG","NI","NL","NO","NP","NR","
 NU","NZ","OM","PA","PE","PF","PG","PH","PK","PL","PM","PN","PR","PS","PT","PW","PY","QA","RE","RO","R
 S","RU","RW","SA","SB","SC","SD","SE","SG","SH","SI","SJ","SK","SL","SM","SN","SO","SR","ST","SV"];
-
 - String too long for [root.customerState], maximum length is [255];
 - Invalid value for [root.items[i].bibliomundiEbookID], maximum is [4294967295];
 - String does not match pattern for [root.items[i].price].
+
+# Quando realizando o checkout
+
+- Missing required property [clientID] for root;
+- Missing required property [transactionKey] for root;
+- Missing required property [saleDate] for root;
+- Missing required property [customerIdentificationNumber] for root;
+- Missing required property [customerFullname] for root;
+- Missing required property [customerEmail] for root;
+- Missing required property [customerGender] for root;
+- Missing required property [customerBirthday] for root;
+- Missing required property [customerCountry] for root;
+- Missing required property [customerState] for root;
+- Missing required property [items] for [root];
+- Not enough array items for [root.items], minimum is [1];
+- Missing required property [bibliomundiEbookID] for [root.items[i]];
+- Missing required property [price] for [root.items[i]];
+- The sale (Transaction Key <Transaction Key>) already exists;
+
+# Quando relizando o Download
+- Você não tem permissão para fazer esse download.
