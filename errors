@@ -1,13 +1,11 @@
-
-
-#Complete e update
+# Complete e update
 
  Missing required property [scope] for root;
  Missing required property [clientID] for root;
  Invalid value for [root.clientID], maximum length is [42];
  Invalid value(s) for [root.scope], allowable values are [“complete”, “updates”].
  
-#Validate
+# Validate
 
  The simulation has been executed successfully;
  Your store is not active for sale, contact the support;
