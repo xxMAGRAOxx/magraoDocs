@@ -83,7 +83,7 @@ catch(\BBM\Server\Exception $e)
 
 Para cada tag &lt;produto&gt; existirá uma tag chamada &lt;NotificationType&gt; indicando a operação a ser realizada.
 
-Ex: 03 -> inserir. 04 -> Atualizar. 05 -> Deletar. Para a lista completa de códigos, vá ao item "P.1.2" da documentação Onix.
+Ex: 03 -> inserir. 04 -> Atualizar. 05 -> Deletar.
 
 # Passo 4 - Realizando uma venda
 Uma vez que você disponibilizar os ebooks em sua loja, seus clientes estarão aptos a relizar compras. Toda vez que um cliente tentar comprar um produto nosso será necessário que você valide a transação conosco e em caso de aprovação prosseguir para o checkout. Repare que a sua validação e o seu checkout e a nossa validação e o nosso checkout sãos duas coisas distintas. Você deverá sempre validar e fazer o checkout conosco para que tenhamos ciência de que a venda foi efetuada, para então podermos liberar o download para o seu cliente. Tenha isso em mente.
@@ -91,7 +91,7 @@ Uma vez que você disponibilizar os ebooks em sua loja, seus clientes estarão a
 Instancie a classe Purchase passando suas credenciais como parâmetro.
 <pre>$purchase = new BBM\Purchase('YOUR_API_KEY', 'YOUR_API_SECRET');</pre>
 
-EScolha o ambiente
+Escolha o ambiente
 <pre>
 $catalog->environment = 'production';
 ou
