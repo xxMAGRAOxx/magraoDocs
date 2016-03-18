@@ -1,4 +1,4 @@
-# Visão geral da Api
+# Sobre a Api
 Nós somos a Bibliomundi, uma distribuidora de livros digitais e disponibilizamos esta Api com o objetivo de facilitar a integração dos ebooks cadastrados em nossa plataforma com a sua loja. Para que você possa vender nossos ebooks em sua loja serão necessários alguns passos e o auxílio de um programador.
 
 Obs. Esta api requer o PHP como linguagem de programação e caso você trabalhe com outras linguagens, disponibilizamos um webservice completo que você pode verificar <a href="https://drive.google.com/file/d/0BzwFNhJ9FBNwS0JCSzA3cXFPYUk/view">aqui</a>.
