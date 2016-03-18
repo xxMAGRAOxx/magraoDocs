@@ -57,7 +57,7 @@ Uma vez com o <a href="https://github.com/xxMAGRAOxx/magraoDocs/blob/master/onix
 
 # Passo 3 - Realizando atualizações diárias
 Realizamos atualizações diárias em nosso sistema e você precisará, também diariamente, criar uma rotina para checar se existem ebooks a serem inseridos, atualizados ou deletados.
-Recomendamos que crie uma agendador de tarefas para rodar entre 01 e 06 da manhã(UTC-3) afim de evitar que ebooks sejam disponibilizados com dados defasados podendo assim causar erros na venda.
+Recomendamos que crie uma agendador de tarefas para rodar entre 01 e 06 da manhã(GMT-3) afim de evitar que ebooks sejam disponibilizados com dados defasados podendo assim causar erros na venda.
 
 Passe apenas um terceiro parâmetro chamado 'updates'.
 
