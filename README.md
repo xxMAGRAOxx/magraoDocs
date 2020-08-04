@@ -1,3 +1,5 @@
+# Obs. "Documentação" que fiz na Bibliomundi(Empresa aonde trabalhei). Não sei como diabos isso veio parar no meu github pessoal...
+
 # Sobre a Api
 Nós somos a Bibliomundi, uma distribuidora de livros digitais e disponibilizamos esta Api com o objetivo de facilitar a integração dos ebooks cadastrados em nossa plataforma com a sua loja. Para que você possa vender nossos ebooks em sua loja serão necessários alguns passos e o auxílio de um programador.
 
